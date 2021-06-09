@@ -3,11 +3,12 @@ const $searchInput = $("#search");
 
 function getGiphy(res) {
   const $ul = $("#images");
-  const $li = $("li");
-  let numResults = res;
+  const $li = $("li"); // this is actually selecting <li> elements, but I think you're meaning to create a <li>
+  let numResults = res; // this should be a number, as in numResults
+  // try console.log(res) and understand the data structure
   if (numResults) {
     let randomIdx = Math.floor(Math.random() * numResults);
-    let $addGif = $("<img>", { src: res[randomIdx] });
+    let $addGif = $("<img>", { src: res[randomIdx] }); // this will generate an element => <img src="whatever res[randomIdx] is"> please inspect the data structure of res and try fixing this
 
     $li.append($addGif);
     $ul.append($li);
