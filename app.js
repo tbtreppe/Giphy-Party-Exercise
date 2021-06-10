@@ -3,15 +3,18 @@ const $searchInput = $("#search");
 
 function getGiphy(res) {
   const $ul = $("#images");
-  const $li = $("li");
-  let numResults = res;
+  const $li = $("<li>");
+  let numResults = res.data.length;
+  console.log(res);
   if (numResults) {
     let randomIdx = Math.floor(Math.random() * numResults);
-    let $addGif = $("<img>", { src: res[randomIdx] });
+    let $addGif = $("<img>", { src: res.data[randomIdx].images.original.url });
 
     $li.append($addGif);
     $ul.append($li);
+    $imagearea.append($ul);
     console.log("an image is coming");
+    console.log(res);
   }
   console.log(numResults);
 }
